@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+while true; do
+  clear
+  cat <<'EOF'
+ _   _ _____ ____  _____ ___  ____
+| | | | ____/ ___|| ____/ _ \/ ___|
+| |_| |  _| \___ \|  _|| | | \___ \
+|  _  | |___ ___) | |__| |_| |___) |
+|_| |_|_____|____/|_____\___/|____/
+
+          Arch Linux edition
+
+EOF
+  echo "1) Hyprland desktop"
+  echo "2) Ordering kiosk"
+  echo "3) Reboot"
+  echo "4) Power off"
+  read -r -p "Choose a mode [1-4]: " choice
+  case "$choice" in
+    1) exec dbus-run-session Hyprland ;;
+    2) exec chromium --no-sandbox --disable-dev-shm-usage --kiosk --no-first-run file:///opt/heseos/kiosk/index.html ;;
+    3) systemctl reboot ;;
+    4) systemctl poweroff ;;
+    *) ;;
+  esac
+done
