@@ -24,6 +24,7 @@ jobs:
           cp -a /usr/share/archiso/configs/releng/. build/
           rsync -a profile/airootfs/ build/airootfs/
           cat profile/packages.x86_64 >> build/packages.x86_64
+          sed -i 's/^[[:space:]]*//; s/[[:space:]]*$//' build/packages.x86_64
           sort -u build/packages.x86_64 -o build/packages.x86_64
           sed -i 's/^iso_name=.*/iso_name="heseos"/' build/profiledef.sh
           sed -i 's/^iso_label=.*/iso_label="HESEOS_0.1"/' build/profiledef.sh
