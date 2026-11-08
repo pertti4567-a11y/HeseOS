@@ -38,3 +38,13 @@ jq
 unzip
 zip
 rsync
+
+dbus
+xdg-utils
+xdg-user-dirs
+ttf-dejavu
+brightnessctl
+pavucontrol
+gr​​im
+slurp
+wl-clipboard
